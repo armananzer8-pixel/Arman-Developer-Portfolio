@@ -1,0 +1,483 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="ARMAN — Python Developer and Computer Science student building useful digital experiences.">
+
+    <meta name="theme-color" content="#09090f">
+
+    <title>{{ profile.name|default:"ARMAN" }} | Developer Portfolio</title>
+
+    <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header class="navbar">
+        <div class="container navbar-inner">
+
+            <a href="#home" class="logo" aria-label="ARMAN Home">
+                {{ profile.name|default:"ARMAN" }}<span>.</span>
+            </a>
+
+            <button
+                class="nav-toggle"
+                type="button"
+                aria-label="Open menu"
+                aria-expanded="false"
+                aria-controls="nav-menu"
+            >
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+                <span class="nav-toggle-bar"></span>
+            </button>
+
+            <nav class="nav-menu" id="nav-menu" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#certifications">Certifications</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+
+    <!-- ================= MAIN CONTENT ================= -->
+
+    <main>
+
+        <!-- ========== HERO SECTION ========== -->
+
+        <section class="hero container fade-up" id="home">
+
+            <div class="hero-content">
+
+                <p class="hero-tag">
+                    {{ profile.role|default:"PYTHON DEVELOPER · CREATIVE BUILDER" }}
+                </p>
+
+                <h1>
+                    I'M<br>
+                    <span>{{ profile.name|default:"ARMAN" }}.</span>
+                </h1>
+
+                <p class="hero-description">
+    I'm Arman, currently studying Computer Science.
+    I enjoy coding in Python, working with Django,
+    and creating projects that help me put what I learn into practice.
+</p>
+
+                <ul class="hero-chips" aria-label="Key skills">
+                    {% for skill in skills|slice:":4" %}
+                        <li>{{ skill.name }}</li>
+                    {% empty %}
+                        <li>Python</li>
+                        <li>Django</li>
+                        <li>PostgreSQL</li>
+                        <li>Git</li>
+                    {% endfor %}
+                </ul>
+
+                <div class="hero-actions">
+
+                    <a href="#projects" class="btn btn-primary">
+                        Explore my work
+                    </a>
+
+                    <a href="#contact" class="btn btn-secondary">
+                        Get in touch
+                    </a>
+
+                </div>
+
+            </div>
+
+            <!-- Profile Photograph -->
+
+            <div class="hero-image">
+
+                <div class="hero-stage">
+
+                 <img
+    src="{% static 'portfolio/images/profile.jpg' %}?v=2"
+    alt="Portrait of {{ profile.name|default:'Arman' }}"
+    class="about-frame-img"
+    loading="lazy"
+    width="932"
+    height="900"
+>
+
+                    <div class="hero-nametag">
+                        <span class="hero-nametag-name">{{ profile.name|default:"ARMAN" }}</span>
+                        <span class="hero-nametag-role">B.Sc. Computer Science</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========== ABOUT SECTION ========== -->
+
+        <section class="section container" id="about">
+
+            <p class="section-tag">GET TO KNOW ME</p>
+            <h2 class="section-title">A little about my journey</h2>
+
+            <div class="about-content">
+
+                <div class="about-intro">
+
+                    <h3>
+                        Building ideas into
+                        <span class="about-highlight">digital experiences.</span>
+                    </h3>
+
+                    <p class="about-text">
+                        I'm Arman, a B.Sc. Computer Science student with a strong
+                        interest in Python development and backend engineering.
+                        I enjoy understanding how applications work behind the
+                        scenes and turning ideas into practical software solutions.
+                    </p>
+
+                    <p class="about-text">
+                        My development journey includes working with Python,
+                        Django, databases and web technologies. Through projects
+                        like Arman DevHub and my Library Management System,
+                        I've been developing my skills in programming,
+                        problem-solving and building functional applications.
+                    </p>
+
+                    <p class="about-text">
+                        I'm continuously learning, experimenting with new
+                        technologies and improving my development approach.
+                        My goal is to grow as a Python and Django developer,
+                        gain practical industry experience and contribute
+                        to meaningful software projects.
+                    </p>
+
+                </div>
+
+                <div class="about-photo-wrap">
+
+                    <figure class="about-frame">
+
+                        <div class="about-frame-screen">
+
+<img
+    src="{% static 'portfolio/images/profile.jpg' %}?v=3"
+    alt="Portrait of {{ profile.name|default:'Arman' }}"
+    class="about-frame-img"
+    loading="lazy"
+    width="932"
+    height="900"
+>
+                        </div>
+
+                        <figcaption class="about-frame-caption">
+                            <strong>{{ profile.name|default:"ARMAN" }}</strong>
+                            <span>Aspiring Python Developer</span>
+                        </figcaption>
+
+                    </figure>
+
+                </div>
+
+            </div>
+
+            <div class="about-highlights">
+
+                <div class="about-card">
+                    <span class="about-card-icon">💻</span>
+                    <h3>Backend Development</h3>
+                    <p>Exploring Python, Django, databases and application logic.</p>
+                </div>
+
+                <div class="about-card">
+                    <span class="about-card-icon">🚀</span>
+                    <h3>Learning by Building</h3>
+                    <p>Turning concepts into practical projects and real applications.</p>
+                </div>
+
+                <div class="about-card">
+                    <span class="about-card-icon">🎯</span>
+                    <h3>Career Goal</h3>
+                    <p>Growing as a developer through continuous learning and experience.</p>
+                </div>
+
+            </div>
+
+            <div class="about-skills">
+
+                <h3 class="about-skills-title">Technologies &amp; Tools</h3>
+
+                <ul class="skills-list" aria-label="Skills">
+
+                    {% for skill in skills %}
+                        <li class="skill-tag">{{ skill.name }}</li>
+                    {% empty %}
+                        <li class="skill-tag">Python</li>
+                        <li class="skill-tag">Django</li>
+                        <li class="skill-tag">HTML</li>
+                        <li class="skill-tag">CSS</li>
+                        <li class="skill-tag">JavaScript</li>
+                        <li class="skill-tag">PostgreSQL</li>
+                        <li class="skill-tag">Git &amp; GitHub</li>
+                    {% endfor %}
+
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <!-- ========== PROJECTS SECTION ========== -->
+
+        <section class="section container" id="projects">
+
+            <p class="section-tag">PROJECTS</p>
+            <h2 class="section-title">Things I've built</h2>
+
+            <div class="projects-grid">
+
+                {% for project in projects %}
+
+                    <article class="project-card">
+
+                        <h3 class="project-title">
+                            {{ project.title }}
+                        </h3>
+
+                        <p class="project-description">
+                            {{ project.description }}
+                        </p>
+
+                        {% if project.technologies %}
+                            <p class="project-tech">
+                                {{ project.technologies }}
+                            </p>
+                        {% endif %}
+
+                        <div class="project-links">
+
+                            {% if project.live_url %}
+                                <a href="{{ project.live_url }}"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    Live site
+                                </a>
+                            {% endif %}
+
+                            {% if project.github_url %}
+                                <a href="{{ project.github_url }}"
+                                   class="project-link"
+                                   target="_blank"
+                                   rel="noopener noreferrer">
+                                    GitHub
+                                </a>
+                            {% endif %}
+
+                        </div>
+
+                    </article>
+
+                {% empty %}
+
+                    <p class="project-description">
+                        Projects will be displayed here soon.
+                    </p>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
+
+
+
+<!-- ========== CERTIFICATIONS SECTION ========== -->
+
+<section class="section container" id="certifications">
+
+    <p class="section-tag">CERTIFICATIONS</p>
+
+    <h2 class="section-title">
+        Learning and achievements
+    </h2>
+
+    <p class="cert-intro">
+        A few milestones from my learning journey and the skills
+        I've been working on.
+    </p>
+
+    <div class="cert-grid">
+
+        {% for certification in certifications %}
+
+            <article class="cert-card">
+
+                <div class="cert-top">
+                    <span class="cert-icon" aria-hidden="true">
+                        ✦
+                    </span>
+
+                    <span class="cert-label">CERTIFICATE</span>
+                </div>
+
+                <div class="cert-content">
+
+                    <h3 class="cert-title">
+                        {{ certification.title }}
+                    </h3>
+
+                    {% if certification.issuer %}
+                        <p class="cert-issuer">
+                            {{ certification.issuer }}
+                        </p>
+                    {% endif %}
+
+                    {% if certification.date %}
+                        <p class="cert-date">
+                            {{ certification.date|date:"F Y" }}
+                        </p>
+                    {% endif %}
+
+                </div>
+
+
+{% if certification.certificate_file %}
+
+    <div class="cert-actions">
+        <a
+            href="{{ certification.certificate_file.url }}"
+            class="cert-view-btn"
+            target="_blank"
+            rel="noopener noreferrer">
+            View Certificate
+            <span aria-hidden="true">↗</span>
+        </a>
+    </div>
+
+{% else %}
+
+    <p class="cert-empty">
+        Certificate unavailable.
+    </p>
+
+{% endif %}
+
+                \
+                <div class="cert-bottom">
+                    <span>ARMAN PORTFOLIO</span>
+                    <span class="cert-arrow">↗</span>
+                </div>
+
+            </article>
+
+        {% empty %}
+
+            <p class="cert-empty">
+                Certifications will be displayed here.
+            </p>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+        <!-- ========== CONTACT SECTION ========== -->
+
+        <section class="section container" id="contact">
+
+            <p class="section-tag">CONTACT</p>
+            <h2 class="section-title">Let's work together</h2>
+
+            <p class="contact-text">
+                I'm open to internships and entry-level opportunities.
+                Feel free to reach out.
+            </p>
+
+            <div class="contact-actions">
+
+                <a href="mailto:{{ profile.email|default:'armananzer8@gmail.com' }}"
+                   class="btn btn-primary">
+                    Email me
+                </a>
+
+                <a href="{% static 'portfolio/files/Arman_Resume.pdf' %}"
+                   class="btn btn-secondary"
+                   download="Arman_Resume.pdf">
+                    Download Resume
+                </a>
+
+                {% if profile.github_url %}
+                    <a href="{{ profile.github_url }}"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                {% else %}
+                    <a href="https://github.com/armananzer8-pixel"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        GitHub
+                    </a>
+                {% endif %}
+
+                {% if profile.linkedin_url %}
+                    <a href="{{ profile.linkedin_url }}"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                {% else %}
+                    <a href="https://www.linkedin.com/in/mohammed-muneeb-arman-anzar-3159933b2"
+                       class="btn btn-secondary"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        LinkedIn
+                    </a>
+                {% endif %}
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 ARMAN. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script src="{% static 'portfolio/js/main.js' %}"></script>
+
+</body>
+</html>
