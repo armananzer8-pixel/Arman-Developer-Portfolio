@@ -1,12 +1,12 @@
 # ARMAN — Developer Portfolio
 
-A personal developer portfolio built with Django, HTML, CSS and JavaScript. It showcases my technical skills, projects, certifications and professional background.
+A personal developer portfolio built with **Python, Django, HTML, CSS and JavaScript**. It presents my technical skills, projects, certifications and professional background.
 
 ## About Me
 
 I'm a Computer Science student passionate about Python development, web technologies and Artificial Intelligence.
 
-I'm continuously learning, building practical projects and improving my development skills.
+I enjoy learning new technologies, building practical projects and continuously improving my development skills.
 
 ## Features
 
@@ -74,7 +74,7 @@ cd Arman-Developer-Portfolio
 python -m venv venv
 ```
 
-Activate it on Windows:
+Activate it on Windows PowerShell:
 
 ```powershell
 .\venv\Scripts\Activate.ps1
@@ -88,21 +88,25 @@ python -m pip install -r requirements.txt
 
 ### 4. Configure environment variables
 
-Create a `.env` file in the project root:
+Create a file named `.env` in the project root, alongside `manage.py`.
+
+Add the following:
 
 ```env
-SECRET_KEY=your-new-secret-key
+SECRET_KEY=your-generated-secret-key
 DEBUG=True
 ALLOWED_HOSTS=127.0.0.1,localhost
 ```
 
-Generate a secret key using:
+Generate your own secret key:
 
 ```powershell
 python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
 ```
 
-Keep your `.env` file private.
+Copy the generated key into your `.env` file.
+
+**Important:** Never upload your `.env` file or share your secret key publicly.
 
 ### 5. Apply database migrations
 
@@ -110,21 +114,39 @@ Keep your `.env` file private.
 python manage.py migrate
 ```
 
-### 6. Start the development server
+### 6. Create an admin account
+
+```bash
+python manage.py createsuperuser
+```
+
+Follow the prompts to create your account.
+
+### 7. Start the development server
 
 ```bash
 python manage.py runserver
 ```
 
-Open:
+Open your browser:
 
 http://127.0.0.1:8000/
+
+The Django admin panel is available at:
+
+http://127.0.0.1:8000/admin/
+
+## Important Notes
+
+- The SQLite database is not included in the repository. Migrations create a fresh local database.
+- Certificate uploads stored in the `media/` directory are excluded from GitHub.
+- After setting up a fresh database, use Django Admin to add your portfolio content and certificate files.
 
 ## Future Improvements
 
 - Cloud deployment
 - Cloud-based database and file storage
-- Improved performance and accessibility
+- Performance and accessibility improvements
 - Additional development projects
 
 ## Author
