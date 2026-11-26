@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +7,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="description"
-        content="ARMAN — Python Developer and Computer Science student building useful digital experiences.">
+    <!-- SEO Metadata -->
+    <title>{{ profile.name|default:"ARMAN" }} | Python & Django Developer Portfolio</title>
 
+    <meta name="description"
+          content="Explore ARMAN's portfolio featuring Python and Django development, software projects, technical skills and his Computer Science journey.">
+
+    <meta name="author"
+          content="{{ profile.name|default:'ARMAN' }}">
+
+    <meta name="robots" content="index, follow">
+
+    <!-- Browser Theme -->
     <meta name="theme-color" content="#09090f">
 
-    <title>{{ profile.name|default:"ARMAN" }} | Developer Portfolio</title>
+<!-- Open Graph Metadata -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="ARMAN | Python & Django Developer Portfolio">
+<meta property="og:description" content="Explore ARMAN's projects, technical skills and journey in Python, Django and software development.">
+<meta property="og:url" content="https://arman-developer-portfolio.onrender.com/">
+<meta property="og:site_name" content="ARMAN Developer Portfolio">
+<meta property="og:image" content="https://arman-developer-portfolio.onrender.com/static/portfolio/images/profile.jpg">
+<meta property="og:image:alt" content="ARMAN - Python and Django Developer">
 
+<!-- Twitter / X Card Metadata -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ARMAN | Python & Django Developer Portfolio">
+<meta name="twitter:description" content="Explore ARMAN's projects, technical skills and journey in Python, Django and software development.">
+<meta name="twitter:image" content="https://arman-developer-portfolio.onrender.com/static/portfolio/images/profile.jpg">
+<meta name="twitter:image:alt" content="ARMAN - Python and Django Developer">
+
+    <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
 </head>
 
@@ -73,10 +98,10 @@
                 </h1>
 
                 <p class="hero-description">
-    I'm Arman, currently studying Computer Science.
-    I enjoy coding in Python, working with Django,
-    and creating projects that help me put what I learn into practice.
-</p>
+                    I'm Arman, currently studying Computer Science.
+                    I enjoy coding in Python, working with Django,
+                    and creating projects that help me put what I learn into practice.
+                </p>
 
                 <ul class="hero-chips" aria-label="Key skills">
                     {% for skill in skills|slice:":4" %}
@@ -109,14 +134,14 @@
 
                 <div class="hero-stage">
 
-                 <img
-    src="{% static 'portfolio/images/profile.jpg' %}?v=2"
-    alt="Portrait of {{ profile.name|default:'Arman' }}"
-    class="about-frame-img"
-    loading="lazy"
-    width="932"
-    height="900"
->
+                    <img
+                        src="{% static 'portfolio/images/profile.jpg' %}?v=2"
+                        alt="Portrait of {{ profile.name|default:'Arman' }}"
+                        class="about-frame-img"
+                        loading="lazy"
+                        width="932"
+                        height="900"
+                    >
 
                     <div class="hero-nametag">
                         <span class="hero-nametag-name">{{ profile.name|default:"ARMAN" }}</span>
@@ -177,14 +202,15 @@
 
                         <div class="about-frame-screen">
 
-<img
-    src="{% static 'portfolio/images/profile.jpg' %}?v=3"
-    alt="Portrait of {{ profile.name|default:'Arman' }}"
-    class="about-frame-img"
-    loading="lazy"
-    width="932"
-    height="900"
->
+                            <img
+                                src="{% static 'portfolio/images/profile.jpg' %}?v=3"
+                                alt="Portrait of {{ profile.name|default:'Arman' }}"
+                                class="about-frame-img"
+                                loading="lazy"
+                                width="932"
+                                height="900"
+                            >
+
                         </div>
 
                         <figcaption class="about-frame-caption">
@@ -309,97 +335,94 @@
         </section>
 
 
+        <!-- ========== CERTIFICATIONS SECTION ========== -->
 
-<!-- ========== CERTIFICATIONS SECTION ========== -->
+        <section class="section container" id="certifications">
 
-<section class="section container" id="certifications">
+            <p class="section-tag">CERTIFICATIONS</p>
 
-    <p class="section-tag">CERTIFICATIONS</p>
+            <h2 class="section-title">
+                Learning and achievements
+            </h2>
 
-    <h2 class="section-title">
-        Learning and achievements
-    </h2>
-
-    <p class="cert-intro">
-        A few milestones from my learning journey and the skills
-        I've been working on.
-    </p>
-
-    <div class="cert-grid">
-
-        {% for certification in certifications %}
-
-            <article class="cert-card">
-
-                <div class="cert-top">
-                    <span class="cert-icon" aria-hidden="true">
-                        ✦
-                    </span>
-
-                    <span class="cert-label">CERTIFICATE</span>
-                </div>
-
-                <div class="cert-content">
-
-                    <h3 class="cert-title">
-                        {{ certification.title }}
-                    </h3>
-
-                    {% if certification.issuer %}
-                        <p class="cert-issuer">
-                            {{ certification.issuer }}
-                        </p>
-                    {% endif %}
-
-                    {% if certification.date %}
-                        <p class="cert-date">
-                            {{ certification.date|date:"F Y" }}
-                        </p>
-                    {% endif %}
-
-                </div>
-
-
-{% if certification.certificate_file %}
-
-    <div class="cert-actions">
-        <a
-            href="{% static certification.certificate_file.name %}"
-            class="cert-view-btn"
-            target="_blank"
-            rel="noopener noreferrer">
-            View Certificate
-            <span aria-hidden="true">↗</span>
-        </a>
-    </div>
-
-{% else %}
-
-    <p class="cert-empty">
-        Certificate unavailable.
-    </p>
-
-{% endif %}
-
-                \
-                <div class="cert-bottom">
-                    <span>ARMAN PORTFOLIO</span>
-                    <span class="cert-arrow">↗</span>
-                </div>
-
-            </article>
-
-        {% empty %}
-
-            <p class="cert-empty">
-                Certifications will be displayed here.
+            <p class="cert-intro">
+                A few milestones from my learning journey and the skills
+                I've been working on.
             </p>
 
-        {% endfor %}
+            <div class="cert-grid">
 
-    </div>
+                {% for certification in certifications %}
 
-</section>
+                    <article class="cert-card">
+
+                        <div class="cert-top">
+                            <span class="cert-icon" aria-hidden="true">
+                                ✦
+                            </span>
+
+                            <span class="cert-label">CERTIFICATE</span>
+                        </div>
+
+                        <div class="cert-content">
+
+                            <h3 class="cert-title">
+                                {{ certification.title }}
+                            </h3>
+
+                            {% if certification.issuer %}
+                                <p class="cert-issuer">
+                                    {{ certification.issuer }}
+                                </p>
+                            {% endif %}
+
+                            {% if certification.date %}
+                                <p class="cert-date">
+                                    {{ certification.date|date:"F Y" }}
+                                </p>
+                            {% endif %}
+
+                        </div>
+
+                        {% if certification.certificate_file %}
+
+                            <div class="cert-actions">
+                                <a
+                                    href="{% static certification.certificate_file.name %}"
+                                    class="cert-view-btn"
+                                    target="_blank"
+                                    rel="noopener noreferrer">
+                                    View Certificate
+                                    <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+
+                        {% else %}
+
+                            <p class="cert-empty">
+                                Certificate unavailable.
+                            </p>
+
+                        {% endif %}
+
+                        <div class="cert-bottom">
+                            <span>ARMAN PORTFOLIO</span>
+                            <span class="cert-arrow">↗</span>
+                        </div>
+
+                    </article>
+
+                {% empty %}
+
+                    <p class="cert-empty">
+                        Certifications will be displayed here.
+                    </p>
+
+                {% endfor %}
+
+            </div>
+
+        </section>
 
 
         <!-- ========== CONTACT SECTION ========== -->
