@@ -1,4 +1,3 @@
-
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
@@ -13,29 +12,25 @@
     <meta name="description"
           content="Explore ARMAN's portfolio featuring Python and Django development, software projects, technical skills and his Computer Science journey.">
 
-    <meta name="author"
-          content="{{ profile.name|default:'ARMAN' }}">
-
+    <meta name="author" content="{{ profile.name|default:'ARMAN' }}">
     <meta name="robots" content="index, follow">
-
-    <!-- Browser Theme -->
     <meta name="theme-color" content="#09090f">
 
-<!-- Open Graph Metadata -->
-<meta property="og:type" content="website">
-<meta property="og:title" content="ARMAN | Python & Django Developer Portfolio">
-<meta property="og:description" content="Explore ARMAN's projects, technical skills and journey in Python, Django and software development.">
-<meta property="og:url" content="https://arman-developer-portfolio.onrender.com/">
-<meta property="og:site_name" content="ARMAN Developer Portfolio">
-<meta property="og:image" content="https://arman-developer-portfolio.onrender.com/static/portfolio/images/profile.jpg">
-<meta property="og:image:alt" content="ARMAN - Python and Django Developer">
+    <!-- Open Graph Metadata -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="ARMAN | Python & Django Developer Portfolio">
+    <meta property="og:description" content="Explore ARMAN's projects, technical skills and journey in Python, Django and software development.">
+    <meta property="og:url" content="https://arman-developer-portfolio.onrender.com/">
+    <meta property="og:site_name" content="ARMAN Developer Portfolio">
+    <meta property="og:image" content="https://arman-developer-portfolio.onrender.com/static/portfolio/images/profile.jpg">
+    <meta property="og:image:alt" content="ARMAN - Python and Django Developer">
 
-<!-- Twitter / X Card Metadata -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="ARMAN | Python & Django Developer Portfolio">
-<meta name="twitter:description" content="Explore ARMAN's projects, technical skills and journey in Python, Django and software development.">
-<meta name="twitter:image" content="https://arman-developer-portfolio.onrender.com/static/portfolio/images/profile.jpg">
-<meta name="twitter:image:alt" content="ARMAN - Python and Django Developer">
+    <!-- Twitter / X Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="ARMAN | Python & Django Developer Portfolio">
+    <meta name="twitter:description" content="Explore ARMAN's projects, technical skills and journey in Python, Django and software development.">
+    <meta name="twitter:image" content="https://arman-developer-portfolio.onrender.com/static/portfolio/images/profile.jpg">
+    <meta name="twitter:image:alt" content="ARMAN - Python and Django Developer">
 
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="{% static 'portfolio/css/style.css' %}">
@@ -43,8 +38,7 @@
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- NAVBAR -->
     <header class="navbar">
         <div class="container navbar-inner">
 
@@ -77,13 +71,10 @@
         </div>
     </header>
 
-
-    <!-- ================= MAIN CONTENT ================= -->
-
+    <!-- MAIN CONTENT -->
     <main>
 
-        <!-- ========== HERO SECTION ========== -->
-
+        <!-- HERO SECTION -->
         <section class="hero container fade-up" id="home">
 
             <div class="hero-content">
@@ -115,7 +106,6 @@
                 </ul>
 
                 <div class="hero-actions">
-
                     <a href="#projects" class="btn btn-primary">
                         Explore my work
                     </a>
@@ -123,15 +113,12 @@
                     <a href="#contact" class="btn btn-secondary">
                         Get in touch
                     </a>
-
                 </div>
 
             </div>
 
             <!-- Profile Photograph -->
-
             <div class="hero-image">
-
                 <div class="hero-stage">
 
                     <img
@@ -144,19 +131,20 @@
                     >
 
                     <div class="hero-nametag">
-                        <span class="hero-nametag-name">{{ profile.name|default:"ARMAN" }}</span>
-                        <span class="hero-nametag-role">B.Sc. Computer Science</span>
+                        <span class="hero-nametag-name">
+                            {{ profile.name|default:"ARMAN" }}
+                        </span>
+                        <span class="hero-nametag-role">
+                            B.Sc. Computer Science
+                        </span>
                     </div>
 
                 </div>
-
             </div>
 
         </section>
 
-
-        <!-- ========== ABOUT SECTION ========== -->
-
+        <!-- ABOUT SECTION -->
         <section class="section container" id="about">
 
             <p class="section-tag">GET TO KNOW ME</p>
@@ -201,7 +189,6 @@
                     <figure class="about-frame">
 
                         <div class="about-frame-screen">
-
                             <img
                                 src="{% static 'portfolio/images/profile.jpg' %}?v=3"
                                 alt="Portrait of {{ profile.name|default:'Arman' }}"
@@ -210,7 +197,6 @@
                                 width="932"
                                 height="900"
                             >
-
                         </div>
 
                         <figcaption class="about-frame-caption">
@@ -251,7 +237,6 @@
                 <h3 class="about-skills-title">Technologies &amp; Tools</h3>
 
                 <ul class="skills-list" aria-label="Skills">
-
                     {% for skill in skills %}
                         <li class="skill-tag">{{ skill.name }}</li>
                     {% empty %}
@@ -263,16 +248,13 @@
                         <li class="skill-tag">PostgreSQL</li>
                         <li class="skill-tag">Git &amp; GitHub</li>
                     {% endfor %}
-
                 </ul>
 
             </div>
 
         </section>
 
-
-        <!-- ========== PROJECTS SECTION ========== -->
-
+        <!-- PROJECTS SECTION -->
         <section class="section container" id="projects">
 
             <p class="section-tag">PROJECTS</p>
@@ -301,19 +283,23 @@
                         <div class="project-links">
 
                             {% if project.live_url %}
-                                <a href="{{ project.live_url }}"
-                                   class="project-link"
-                                   target="_blank"
-                                   rel="noopener noreferrer">
+                                <a
+                                    href="{{ project.live_url }}"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     Live site
                                 </a>
                             {% endif %}
 
                             {% if project.github_url %}
-                                <a href="{{ project.github_url }}"
-                                   class="project-link"
-                                   target="_blank"
-                                   rel="noopener noreferrer">
+                                <a
+                                    href="{{ project.github_url }}"
+                                    class="project-link"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
                                     GitHub
                                 </a>
                             {% endif %}
@@ -334,9 +320,7 @@
 
         </section>
 
-
-        <!-- ========== CERTIFICATIONS SECTION ========== -->
-
+        <!-- CERTIFICATIONS SECTION -->
         <section class="section container" id="certifications">
 
             <p class="section-tag">CERTIFICATIONS</p>
@@ -357,10 +341,7 @@
                     <article class="cert-card">
 
                         <div class="cert-top">
-                            <span class="cert-icon" aria-hidden="true">
-                                ✦
-                            </span>
-
+                            <span class="cert-icon" aria-hidden="true">✦</span>
                             <span class="cert-label">CERTIFICATE</span>
                         </div>
 
@@ -391,7 +372,8 @@
                                     href="{% static certification.certificate_file.name %}"
                                     class="cert-view-btn"
                                     target="_blank"
-                                    rel="noopener noreferrer">
+                                    rel="noopener noreferrer"
+                                >
                                     View Certificate
                                     <span aria-hidden="true">↗</span>
                                 </a>
@@ -424,9 +406,7 @@
 
         </section>
 
-
-        <!-- ========== CONTACT SECTION ========== -->
-
+        <!-- CONTACT SECTION -->
         <section class="section container" id="contact">
 
             <p class="section-tag">CONTACT</p>
@@ -439,45 +419,49 @@
 
             <div class="contact-actions">
 
-                <a href="mailto:{{ profile.email|default:'armananzer8@gmail.com' }}"
-                   class="btn btn-primary">
+                <a
+                    href="mailto:{{ profile.email|default:'armananzer8@gmail.com' }}"
+                    class="btn btn-primary"
+                >
                     Email me
                 </a>
 
-                <a href="{% static 'portfolio/files/Arman_Resume.pdf' %}"
-                   class="btn btn-secondary"
-                   download="Arman_Resume.pdf">
-                    Download Resume
-                </a>
-
                 {% if profile.github_url %}
-                    <a href="{{ profile.github_url }}"
-                       class="btn btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                    <a
+                        href="{{ profile.github_url }}"
+                        class="btn btn-secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         GitHub
                     </a>
                 {% else %}
-                    <a href="https://github.com/armananzer8-pixel"
-                       class="btn btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                    <a
+                        href="https://github.com/armananzer8-pixel"
+                        class="btn btn-secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         GitHub
                     </a>
                 {% endif %}
 
                 {% if profile.linkedin_url %}
-                    <a href="{{ profile.linkedin_url }}"
-                       class="btn btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                    <a
+                        href="{{ profile.linkedin_url }}"
+                        class="btn btn-secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         LinkedIn
                     </a>
                 {% else %}
-                    <a href="https://www.linkedin.com/in/mohammed-muneeb-arman-anzar-3159933b2"
-                       class="btn btn-secondary"
-                       target="_blank"
-                       rel="noopener noreferrer">
+                    <a
+                        href="https://www.linkedin.com/in/mohammed-muneeb-arman-anzar-3159933b2"
+                        class="btn btn-secondary"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
                         LinkedIn
                     </a>
                 {% endif %}
@@ -488,18 +472,14 @@
 
     </main>
 
-
-    <!-- ================= FOOTER ================= -->
-
+    <!-- FOOTER -->
     <footer class="footer">
         <div class="container">
             <p>&copy; 2026 ARMAN. All rights reserved.</p>
         </div>
     </footer>
 
-
-    <!-- ================= JAVASCRIPT ================= -->
-
+    <!-- JAVASCRIPT -->
     <script src="{% static 'portfolio/js/main.js' %}"></script>
 
 </body>
